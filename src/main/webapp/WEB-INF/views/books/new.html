@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New person</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/books}" th:object="${book}">
+    <label for="author">Author: </label>
+    <input type="text" th:field="*{author}" id="author"/>
+    <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author Error</div>
+    <br/>
+    <label for="genre">Genre: </label>
+    <input type="text" th:field="*{genre}" id="genre"/>
+    <div style="color:red" th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">genre Error</div>
+    <br/>
+    <label for="title">Title: </label>
+    <input type="text" th:field="*{title}" id="title"/>
+    <div style="color:red" th:if="${#fields.hasErrors('title')}" th:errors="*{title}">title Error</div>
+    <br/>
+    <label for="year">Year: </label>
+    <input type="text" th:field="*{year}" id="year"/>
+    <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}">year Error</div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+<hr/>
+<br/>
+<a href = "/">Back</a>
+</body>
+</html>
